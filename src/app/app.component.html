@@ -1,0 +1,48 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<input type="text" [(ngModel)] = "name" >
+<p>{{ name }}</p>
+<p>{{ details.branch}}</p>
+<ul>
+  <li *ngFor= "let arr of branches">{{arr}}</li>
+</ul>
+
+<ul>
+  <li *ngIf="branches ; else elsetmpl">Branches exist</li>
+</ul>
+
+<ng-template #elsetmpl>No result</ng-template>
+
+<button [disabled] ="buttonStatus == 'disabled'">Submit</button>
+
+<button (mouseenter)="clickEvent($event)" [ngClass]="buttonClasses">Event</button>
+
+
+
+<p>{{ someProperty }}</p>
+<a routerLink="/member">Member</a>
+<a routerLink="/header">Header</a>
+
+<br>
+
+<router-outlet></router-outlet>
+
+<div class="main">
+  <h1>Item List</h1>
+  <div class="addItem">
+    <input type="text" name="" id="" class="addText" placeholder="Add Item" [(ngModel)] = "newItem">
+    <button (click)= "pushItem()">Add</button>
+  </div>
+  <ul>
+    <li *ngFor = "let i of items; let ind = index">
+        {{i}}
+        <span (click) = "removeItem(ind)">x</span>
+    </li>
+  </ul>
+</div>
+<h2>{{day | date}}</h2>
+<h2>{{day | date : 'shortDate'}}</h2>
+<h2>{{day | date : 'longDate'}}</h2>
+<h2>{{day | date : 'longDate' | uppercase}}</h2>
+
+{{ arr | Sort : 'descending'}}
